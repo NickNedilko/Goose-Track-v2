@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://goose-back-end.onrender.com/';
+axios.defaults.baseURL = 'https://goose-track-backend-krzy.onrender.com';
 
 
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://goose-back-end.onrender.com';
+axios.defaults.baseURL = 'https://goose-track-backend-krzy.onrender.com';
 
 export const token = {
   set(token) {
