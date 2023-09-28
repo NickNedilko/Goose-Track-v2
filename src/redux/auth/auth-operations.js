@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://goose-track-backend-krzy.onrender.com/';
+axios.defaults.baseURL = 'https://goose-track-backend-krzy.onrender.com';
 
 export const token = {
   set(token) {
@@ -16,7 +16,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('auth/register', credentials);
+      const { data } = await axios.post('/auth/register', credentials);
       token.set(data.token);
       return data;
     } catch (error) {
@@ -29,7 +29,7 @@ export const login = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('auth/login', credentials);
+      const { data } = await axios.post('/auth/login', credentials);
       token.set(data.token);
       return data;
     } catch (error) {
@@ -40,7 +40,7 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('auth/logout');
+    await axios.post('/auth/logout');
     token.unset();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
