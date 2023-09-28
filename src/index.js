@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <PersistGate persistor={persistor}>
       <Provider store={store}>
-        <Router basename="/GooseTrack-Team8">
+        <Router basename="/Goose-Track-v2">
           <ChangeThemeProvider>
             <App />
           </ChangeThemeProvider>
