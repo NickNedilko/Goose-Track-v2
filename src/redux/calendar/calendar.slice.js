@@ -85,11 +85,13 @@ const calendarSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(editTaskOperation.fulfilled, (state, { payload }) => {
-        const index = state.tasks[state.indexCurrentDay].findIndex(
+        
+        const index = state.tasks.findIndex(
           task => task._id === payload._id
         );
+        
         if (index !== -1) {
-          state.tasks[state.indexCurrentDay][index] = payload;
+          state.tasks[index] = payload;
         }
         state.isLoading = false;
         state.error = null;

@@ -63,9 +63,10 @@ export const deleteTaskOperation = createAsyncThunk(
 
 export const editTaskOperation = createAsyncThunk(
   'tasks/editTaskOperation',
-  async (task, thunkAPI) => {
+  async (data, thunkAPI) => {
     try {
-      const response = await axios.patch(`/tasks/${task._id}`, task);
+     console.log(data)
+      const response = await axios.patch(`/tasks/${data.id}`, data.payload);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

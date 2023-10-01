@@ -61,13 +61,26 @@ const taskSchema = object({
 const TaskForm = ({ onClose, ...data }) => {
   const dispatch = useDispatch();
 
-  // console.log(data.status)
+  
+
+  const b = data.props?.filter(prop=>prop._id === data.status);
+
   const userTasks = useSelector(selectTasks);
   const tt = userTasks.filter(task => task._id === data.status);
-   console.log(data)
+
   const editForm = tt.length ? true : false;
-  const category = data?.status || 'to-do';
-  console.log(data.status)
+console.log(tt)
+
+let category;
+
+ if(editForm){
+ category = tt[0].category
+ } else{
+  category = data.status
+ }
+ 
+  
+
 
   const initialValues = {
     title: tt[0]?.title || '',
@@ -77,16 +90,16 @@ const TaskForm = ({ onClose, ...data }) => {
   };
 
   const { currentDate: date } = useParams();
-  //  console.log(day);
   const handleSubmit = values => {
     if (!editForm) {
       const payload = { ...values, date, category };
       dispatch(addTaskOperation(payload));
-      // console.log(payload);
       onClose();
     } else {
-      const payload = { ...values, date, category, id: tt[0]._id };
-      dispatch(editTaskOperation(payload));
+      // const category = 'to-do'
+      const id = b[0]._id 
+      const payload = { ...values, date,  category};
+      dispatch(editTaskOperation({payload, id}));
       console.log(payload);
 
       onClose();

@@ -28,7 +28,7 @@ const TaskCardList = props => {
   const load = useSelector(state => state.calendar.isLoading);
   const { user } = useAuth();
 
-  // console.log(taskStatus);
+  
   const dispatch = useDispatch();
 
   const colorStatus = status => {
@@ -106,6 +106,7 @@ const TaskCardList = props => {
                       <TaskModal
                         onClose={onClose}
                         status={taskStatus}
+                        props={props.task}
                       />,
                       document.querySelector('#modal-root')
                     )}
