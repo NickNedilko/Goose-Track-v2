@@ -65,7 +65,6 @@ export const editTaskOperation = createAsyncThunk(
   'tasks/editTaskOperation',
   async (data, thunkAPI) => {
     try {
-     console.log(data)
       const response = await axios.patch(`/tasks/${data.id}`, data.payload);
       return response.data;
     } catch (error) {

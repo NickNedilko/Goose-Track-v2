@@ -69,18 +69,8 @@ const TaskForm = ({ onClose, ...data }) => {
   const tt = userTasks.filter(task => task._id === data.status);
 
   const editForm = tt.length ? true : false;
-console.log(tt)
 
-let category;
-
- if(editForm){
- category = tt[0].category
- } else{
-  category = data.status
- }
- 
-  
-
+const category = editForm ? tt[0].category : data.status
 
   const initialValues = {
     title: tt[0]?.title || '',
@@ -96,12 +86,10 @@ let category;
       dispatch(addTaskOperation(payload));
       onClose();
     } else {
-      // const category = 'to-do'
+     
       const id = b[0]._id 
       const payload = { ...values, date,  category};
       dispatch(editTaskOperation({payload, id}));
-      console.log(payload);
-
       onClose();
     }
   };
@@ -235,7 +223,6 @@ let category;
               )}
 
               <CancelBtn type="button" onClick={onClose}>
-                {' '}
                 Cancel
               </CancelBtn>
             </Flex>

@@ -2,15 +2,20 @@ import styled from 'styled-components';
 
 
 export const Container = styled.div`
-     position: relative;   
-    margin: 40px 28px;  
+    
+    position: relative;   
+    padding: 40px 28px;  
     font-size:12px;
     font-weight: 600;
-    line-height: 14px;  
+    line-height: 14px; 
+      @media (min-width: 375px){
+    width: 396px;  
+      height: 360px; 
+  }
    
 `
 export const TaskInput = styled.input`
-     width: 95%;
+     width: 267px;
     padding: 14px;
     padding-left: 8px;
     margin-top: 8px;
@@ -18,6 +23,11 @@ export const TaskInput = styled.input`
     color: ${({ theme }) => theme.textColors.modalText};
     background-color: ${({ theme }) => theme.bgColors.modalInputBg};
     border-radius: 8px;
+
+    @media (min-width: 375px){
+    width: 340px;  
+     
+  }
 `
 
 export const Errors = styled.p`
@@ -209,7 +219,7 @@ export const Plus = styled.span`
 `
 export const Close = styled.span`
     position: absolute;
-    top:-22px;
-    right:-5px;
+    top: 14px;
+    right: 14px;
     cursor: pointer; 
 `

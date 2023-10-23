@@ -23,8 +23,8 @@ export const Overlay = styled.div`
 `
 
 export const ModalWindow = styled.div`
-    width: 303px;  
-      height: 336px; 
+    width: auto;  
+      height: auto; 
     position: absolute;
   top:50%;
   left: 50%;
@@ -36,9 +36,6 @@ export const ModalWindow = styled.div`
  
 
 
-  @media (min-width: 375px){
-    width: 396px;  
-      height: 360px; 
-  }
+
 
 `
